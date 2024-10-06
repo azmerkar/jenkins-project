@@ -27,15 +27,11 @@ pipeline {
                     # Gereksinimleri yükle
                     pip install -r requirements.txt
 
-                    # pytest kurulumunu doğrulayın
-                    pip install pytest
                 '''            
             }
         }
         stage('Test') {
-            steps {
-
-                sh ". venv/bin/activate"
+            steps {s
                 sh "pytest"
                 sh "whoami"
             }
