@@ -34,6 +34,8 @@ pipeline {
         }
         stage('Test') {
             steps {
+
+                . venv/bin/activate
                 sh "pytest"
                 sh "whoami"
             }
