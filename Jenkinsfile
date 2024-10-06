@@ -17,7 +17,16 @@ pipeline {
         // }
         stage('Setup') {
             steps {
-                sh "pip install -r requirements.txt"
+                sh '''
+                    # Sanal ortam oluşturma
+                    python3 -m venv venv
+
+                    # Sanal ortamı etkinleştir
+                    . venv/bin/activate
+
+                    # Gereksinimleri yükle
+                    pip install -r requirements.txt
+                '''            
             }
         }
         stage('Test') {
