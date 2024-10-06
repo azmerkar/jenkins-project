@@ -32,6 +32,7 @@ pipeline {
         }
         stage('Test') {
             steps {
+                sh "pip install Flask"
                 sh "pytest"
                 sh "whoami"
             }
