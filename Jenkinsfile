@@ -18,10 +18,9 @@ pipeline {
         }
         stage('Test') {
             steps {
+                echo "The DB IP username ${USERNAME} and password ${PASSWORD}"
                 sh 'whoami'
                 sh '/var/lib/jenkins/.local/bin/pytest'
-                sh "whoami"
-                echo "The DB IP username ${USERNAME} and password ${PASSWORD}"
                 
              } 
             }
