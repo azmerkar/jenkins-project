@@ -9,25 +9,9 @@ pipeline {
     }
     stages {
 
-        // stage('Checkout') {
-        //     steps {
-        //         git url: 'https://github.com/kodekloudhub/jenkins-project.git', branch: 'main'
-        //         sh "ls -ltr"
-        //     }
-        // }
         stage('Setup') {
             steps {
-                sh '''
-                    # Sanal ortam oluşturma
-                    python3 -m venv venv
-
-                    # Sanal ortamı etkinleştir
-                    . venv/bin/activate
-                     
-                    # Gereksinimleri yükle
-                    pip install -r requirements.txt
-
-                '''            
+                sh  "pip install -r requirements.txt"     
             }
         }
         stage('Test') {
