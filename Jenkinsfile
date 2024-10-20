@@ -23,8 +23,6 @@ pipeline {
 
                     # Sanal ortamı etkinleştir
                     . venv/bin/activate
-
-                    /var/lib/jenkins/workspace/flaskpipeline/venv/bin/python3 -m pip install --upgrade pip
                      
                     # Gereksinimleri yükle
                     pip install -r requirements.txt
