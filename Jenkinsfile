@@ -11,6 +11,7 @@ pipeline {
 
         stage('Setup') {
             steps {
+                sh 'export PATH=$PATH:/var/lib/jenkins/.local/bin'
                 sh  "pip install -r requirements.txt"     
             }
         }
