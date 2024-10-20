@@ -16,6 +16,7 @@ pipeline {
         }
         stage('Test') {
             steps {
+                sh 'pytest --version'
                 sh "pytest"
                 sh "whoami"
              } 
