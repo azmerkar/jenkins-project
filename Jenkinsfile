@@ -16,9 +16,8 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'export PATH=$PATH:/var/lib/jenkins/.local/bin'
-                sh 'pytest --version'
-                sh "pytest"
+                sh '/var/lib/jenkins/.local/bin/pytest --version'
+                sh '/var/lib/jenkins/.local/bin/pytest '
                 sh "whoami"
              } 
             }
