@@ -16,8 +16,8 @@ pipeline {
         }
         stage('Test') {
             steps {
-            
-                sh 'pytest'
+                sh 'whoami'
+                sh '/var/lib/jenkins/.local/bin/pytest'
                 sh "whoami"
              } 
             }
