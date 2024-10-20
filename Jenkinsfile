@@ -16,7 +16,6 @@ pipeline {
         stage('Test') {
             steps {
                 echo "${env.JENKINS_URL}"
-                echo "The DB IP username ${USERNAME} and password ${PASSWORD}"
                 sh '/var/lib/jenkins/.local/bin/pytest'
                 
              } 
