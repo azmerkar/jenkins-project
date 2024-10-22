@@ -4,17 +4,17 @@ pipeline {
     stages {
 
         stage('lint and formatting'){
-            stages{
+            parallel{
                   stage('linting'){
                      steps{
-                         echo 'linting'
+                         sh 'sleep 30'
                      }
 
                   }
 
                   stage('formatting'){
                     steps{
-                       echo 'formatting'
+                      sh 'sleep 30'
 
                     }
                   }
