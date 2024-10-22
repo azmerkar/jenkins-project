@@ -1,24 +1,17 @@
 pipeline {
     agent any
 
+    options {
+        timeout(time: 1 , unit: 'MINUTES')
+
+    }
+
     stages {
 
         stage('lint and formatting'){
-            parallel{
-                  stage('linting'){
-                     steps{
-                         sh 'sleep 30'
-                     }
-
-                  }
-
-                  stage('formatting'){
-                    steps{
-                      sh 'sleep 30'
-
-                    }
-                  }
-            }
+               steps{
+                   sh 'sleep  70'
+               }
         }
 
         stage('Setup') {
