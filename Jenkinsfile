@@ -1,8 +1,8 @@
 pipeline {
     agent any
     parameters{
-        string(name: 'ENVIRONMENT', defaulValue: 'dev', description: 'Specify test environment')
-        booleanParam(name: 'RUN_TESTS', defaulValue: true, description: 'Run tests in pipelin'  )
+        string(name: 'ENVIRONMENT', defaultValue: 'dev', description: 'Specify test environment')
+        booleanParam(name: 'RUN_TESTS', defaultValue: true, description: 'Run tests in pipeline'  )
     }
 
     options {
