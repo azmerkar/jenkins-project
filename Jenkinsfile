@@ -6,11 +6,6 @@ pipeline {
         
     }
 
-     environment {
-         DB_HOST = '192.143.06.06'
-         USERNAME = 'user1'
-         PASSWORD = 'password123'
-     }
     options {
         timeout(time: 1 , unit: 'MINUTES')
 
