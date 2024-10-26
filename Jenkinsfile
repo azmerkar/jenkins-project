@@ -29,7 +29,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo "Commit: ${env.GIT_COMMIT}"
-                sh '/var/lib/jenkins/.local/bin/pytest     
+                sh '/var/lib/jenkins/.local/bin/pytest'     
              } 
             }
         }
