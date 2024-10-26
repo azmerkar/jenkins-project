@@ -27,8 +27,8 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh '/var/lib/jenkins/.local/bin/pytest'
                 echo "Commit: ${env.GIT_COMMIT}"
+                sh '/var/lib/jenkins/.local/bin/pytest
                 
              } 
             }
