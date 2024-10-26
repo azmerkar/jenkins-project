@@ -1,7 +1,7 @@
 pipeline {
     agent any
 
-     enviroment {
+     environment {
          DB_HOST = '192.143.06.06'
          USERNAME = 'user1'
          PASSWORD = 'password123'
