@@ -15,7 +15,7 @@ pipeline {
 
         stage('lint and formatting'){
                steps{
-                   sh 'sleep  70'
+                   sh 'sleep  10'
                }
         }
 
