@@ -21,6 +21,7 @@ pipeline {
 
         stage('Setup') {
             steps {
+                echo "Commit: ${env.GIT_COMMIT}"
                 echo "The enviroment variables are ${DB_HOST} ,${USERNAME}, ${PASSWORD}"
                 sh  "pip install -r requirements.txt"  
             }
