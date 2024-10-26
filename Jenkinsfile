@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    environment {
+       SERVER_CREDS = credentials('server-creds') 
+        
+    }
+
      environment {
          DB_HOST = '192.143.06.06'
          USERNAME = 'user1'
@@ -13,17 +18,16 @@ pipeline {
 
     stages {
 
-        stage('lint and formatting'){
-               steps{
-                   sh 'sleep  10'
-               }
-        }
+
 
         stage('Setup') {
             steps {
+                
                 echo "Commit: ${env.GIT_COMMIT}"
-                echo "The enviroment variables are ${DB_HOST} ,${USERNAME}, ${PASSWORD}"
-                sh  "pip install -r requirements.txt"  
+                echo "my creds: ${SERVER_CREDS}"
+                echo "my username: ${SERVER_CREDS_USR}"
+                 echo "my password: ${SERVER_CREDS_PSW}"
+               sh  "pip install -r requirements.txt"  
             }
         }
         stage('Test') {
