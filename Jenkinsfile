@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    parameters{
+        string(name: 'ENVIRONMENT', defaulValue: 'dev', description: 'Specify test environment')
+        booleanParam(name: 'RUN_TESTS', defaulValue: true, description: 'Run tests in pipelin'  )
+    }
 
     options {
         timeout(time: 1 , unit: 'MINUTES')
@@ -22,11 +26,23 @@ pipeline {
             }
         }
         stage('Test') {
+            when{
+                expression{
+                    params.RUN_TESTS == true 
+                }
+            }
             steps {
                 echo "Commit: ${env.GIT_COMMIT}"
-                sh '/var/lib/jenkins/.local/bin/pytest'     
+                echo "testing application"     
              } 
             }
+
+        stage('Deploy') {
+
+            steps {
+                echo "deploying application to ${params.ENVIRONMENT}"     
+             } 
+            }            
         }
     
 }
