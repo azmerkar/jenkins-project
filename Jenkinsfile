@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+     enviroment {
+         DB_HOST = '192.143.06.06'
+         USERNAME = 'user1'
+         PASSWORD = 'password123'
+     }
     options {
         timeout(time: 1 , unit: 'MINUTES')
 
@@ -16,14 +21,7 @@ pipeline {
 
         stage('Setup') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'server-creds',
-                usernameVariable: "myuser" ,passwordVariable: "mypassword"  )]) {
-                    
-                    sh '''
-                    echo ${myuser}
-                    echo ${mypassword}
-                    '''
-                }
+                echo "The enviroment variables are ${DB_HOST} ,${USERNAME}, ${PASSWORD}"
                 sh  "pip install -r requirements.txt"  
             }
         }
