@@ -44,14 +44,23 @@ pipeline {
 
         stage('Deploy') {
 
-            input {
-                        message "Do you want to proceed further?"
-                        ok "Yes"
-                    }
             steps {
                 echo "Deploying application to ${params.ENVIRONMENT}"     
              } 
-            }            
-        
+            }   
+
+
+        stage('Check Docker version') {
+
+   
+            steps {
+                script{
+                    sh 'docker --version'
+                }
+
+             } 
+            } 
+
+
         }
 }
