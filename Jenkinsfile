@@ -41,7 +41,7 @@ pipeline {
         stage('Deploy') {
             input {
                 message "Do you want to proceed further?"
-                ok "yessss"
+                ok "Yes"
             }
             steps {
                 echo "Deploying application to ${params.ENVIRONMENT}"     
