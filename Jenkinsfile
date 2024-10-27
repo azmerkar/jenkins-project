@@ -5,11 +5,6 @@ pipeline {
         booleanParam(name: 'RUN_TESTS', defaultValue: true, description: 'Run tests in pipeline'  )
     }
 
-    options {
-        timeout(time: 1 , unit: 'MINUTES')
-
-    }
-
     stages {
 
 
@@ -33,14 +28,18 @@ pipeline {
             }
             steps {
                 echo "Commit: ${env.GIT_COMMIT}"
-                echo "testing application"     
+                echo "testing application" 
+                sh 'pytest'    
              } 
             }
 
         stage('Deploy') {
-
+            input {
+                message "Do you want to proceed further?"
+                ok "yessss"
+            }
             steps {
-                echo "deploying application to ${params.ENVIRONMENT}"     
+                echo "Deploying application to ${params.ENVIRONMENT}"     
              } 
             }            
         }
