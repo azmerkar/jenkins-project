@@ -39,11 +39,11 @@ pipeline {
             }
         }
         stage('Deploy') {
+            steps {
             input {
                 message "Do you want to proceed further?"
                 ok "Yes"
             }
-            steps {
                 echo "Deploying application to ${params.ENVIRONMENT}"     
              } 
             }            
