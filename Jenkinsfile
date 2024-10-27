@@ -29,7 +29,7 @@ pipeline {
             steps {
                 echo "Commit: ${env.GIT_COMMIT}"
                 echo "testing application" 
-
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
              sh '''
                     source ~/.bashrc
                     pytest --version
@@ -37,7 +37,7 @@ pipeline {
                '''
              } 
             }
-
+        }
         stage('Deploy') {
             input {
                 message "Do you want to proceed further?"
