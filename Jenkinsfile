@@ -29,7 +29,12 @@ pipeline {
             steps {
                 echo "Commit: ${env.GIT_COMMIT}"
                 echo "testing application" 
-                sh 'pytest'    
+
+             sh '''
+                    source ~/.bashrc
+                    pytest --version
+                    pytest
+               '''
              } 
             }
 
